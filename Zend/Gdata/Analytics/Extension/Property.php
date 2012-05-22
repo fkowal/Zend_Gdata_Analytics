@@ -1,16 +1,14 @@
 <?php
+namespace Zend\GData\Analytics\Extension;
 
-/**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
+use Zend\GData\Extension;
 
 /**
  * @category   Zend
- * @package    Zend_Gdata
+ * @package    Zend_GData
  * @subpackage Analytics
  */
-class Zend_Gdata_Analytics_Extension_Property extends Zend_Gdata_Extension
+class Property extends Extension
 {
     protected $_rootNamespace = 'ga';
     protected $_rootElement = 'property';
@@ -18,12 +16,14 @@ class Zend_Gdata_Analytics_Extension_Property extends Zend_Gdata_Extension
     protected $_name = null;
 
     /**
-     * Constructs a new Zend_Gdata_Calendar_Extension_Timezone object.
+     * Constructs a new \Zend\GData\Analytics\Extensio\Property object.
+     *
      * @param string $value (optional) The text content of the element.
+     * @param null $name
      */
     public function __construct($value = null, $name = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Analytics::$namespaces);
+        $this->registerAllNamespaces(\Zend\GData\Analytics::$namespaces);
         parent::__construct();
         $this->_value = $value;
         $this->_name = $name;
@@ -35,13 +35,15 @@ class Zend_Gdata_Analytics_Extension_Property extends Zend_Gdata_Extension
      * stored in an array.
      *
      * @param DOMNode $attribute The DOMNode attribute needed to be handled
+     *
+     * @return null
      */
     protected function takeAttributeFromDOM($attribute)
     {
         switch ($attribute->localName) {
             case 'name':
-            	$this->_name = substr($attribute->nodeValue, 3);
-    	        break;
+                $this->_name = substr($attribute->nodeValue, 3);
+                break;
             case 'value':
                 $this->_value = $attribute->nodeValue;
                 break;
@@ -64,7 +66,8 @@ class Zend_Gdata_Analytics_Extension_Property extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Analytics_Extension_Property The element being modified.
+     *
+     * @return \Zend\GData\Analytics\Extension\Property The element being modified.
      */
     public function setValue($value)
     {
@@ -74,23 +77,28 @@ class Zend_Gdata_Analytics_Extension_Property extends Zend_Gdata_Extension
 
     /**
      * @param string $name
-     * @return Zend_Gdata_Analytics_Extension_Property
+     *
+     * @return \Zend\GData\Analytics\Extension\Property
      */
-    public function setName($name){
-    	$this->_name = $name;
-    	return $this;
+    public function setName($name)
+    {
+        $this->_name = $name;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getName(){
-    	return $this->_name;
+    public function getName()
+    {
+        return $this->_name;
     }
 
     /**
      * Magic toString method allows using this directly via echo
      * Works best in PHP >= 4.2.0
+     *
+     * @return string
      */
     public function __toString()
     {

@@ -1,3 +1,5 @@
 .settings
 .buildpath
 .project
+atlassian-ide-plugin.xml
+.idea

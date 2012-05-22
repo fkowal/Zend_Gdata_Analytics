@@ -1,17 +1,17 @@
-# Zend_Gdata_Analytics
+# \Zend\GData\Analytics
 
-An additonal Zend_GData component to query data from Analytics.
+An additonal \Zend\GData component to query data from Analytics.
 
 ## Example
 
-    $client = Zend_Gdata_ClientLogin::getHttpClient($email, $password, Zend_Gdata_Analytics::AUTH_SERVICE_NAME);
-    $service = new Zend_Gdata_Analytics($client);
+    $client = \Zend\GData\ClientLogin::getHttpClient($email, $password, \Zend\GData\Analytics::AUTH_SERVICE_NAME);
+    $service = new \Zend\GData\Analytics($client);
 
     $query = $service->newDataQuery()
       ->setProfileId($yourID)
-      ->addMetric(Zend_Gdata_Analytics_DataQuery::METRIC_VISITS) 
-      ->addDimension(Zend_Gdata_Analytics_DataQuery::DIMENSION_KEYWORD) 
-      ->addSort(Zend_Gdata_Analytics_DataQuery::METRIC_VISITS, true)
+      ->addMetric(\Zend\GData\Analytics\DataQuery::METRIC_VISITS)
+      ->addDimension(\Zend\GData\Analytics\DataQuery::DIMENSION_KEYWORD)
+      ->addSort(\Zend\GData\Analytics\DataQuery::METRIC_VISITS, true)
       ->setStartDate('2006-01-01') 
       ->setEndDate('2011-07-13')
       ->setMaxResults(10000); 

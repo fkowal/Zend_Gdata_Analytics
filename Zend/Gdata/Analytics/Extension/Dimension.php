@@ -1,17 +1,15 @@
 <?php
+namespace Zend\GData\Analytics\Extension;
 
-/**
- * @see Zend_Gdata_Extension_Metric
- */
-require_once 'Zend/Gdata/Analytics/Extension/Metric.php';
+use Zend\GData\Analytics\Extension\Metric;
 
 /**
  * @category   Zend
- * @package    Zend_Gdata
+ * @package    Zend_GData
  * @subpackage Analytics
  */
-class Zend_Gdata_Analytics_Extension_Dimension 
-    extends Zend_Gdata_Analytics_Extension_Metric
+class Dimension
+    extends Metric
 {
     protected $_rootNamespace = 'ga';
     protected $_rootElement = 'dimension';

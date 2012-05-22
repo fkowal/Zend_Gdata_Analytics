@@ -1,16 +1,13 @@
 <?php
+namespace Zend\GData\Analytics\Extension;
 
-/**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
+use Zend\GData\Extension;
 /**
  * @category   Zend
- * @package    Zend_Gdata
+ * @package    Zend_GData
  * @subpackage Analytics
  */
-class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
+class TableId extends Extension
 {
 
     protected $_rootNamespace = 'ga';
@@ -18,12 +15,12 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
     protected $_value = null;
 
     /**
-     * Constructs a new Zend_Gdata_Calendar_Extension_Timezone object.
+     * Constructs a new Zend\GData\Analytics\Extension\TableId object.
      * @param string $value (optional) The text content of the element.
      */
     public function __construct($value = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Analytics::$namespaces);
+        $this->registerAllNamespaces(\Zend\GData\Analytics::$namespaces);
         parent::__construct();
         $this->_value = $value;
     }
@@ -35,6 +32,9 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
      * for application storage/persistence.
      *
      * @param DOMDocument $doc The DOMDocument used to construct DOMElements
+     * @param int $majorVersion
+     * @param null $minorVersion
+     *
      * @return DOMElement The DOMElement representing this element and all
      * child properties.
      */
@@ -52,7 +52,9 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
      * instance members.  If no mapping is defined, the name and value are
      * stored in an array.
      *
-     * @param DOMNode $attribute The DOMNode attribute needed to be handled
+     * @param \Zend\GData\App\DOMNode $child The DOMNode attribute needed to be handled
+     *
+     * @return null
      */
     protected function takeChildFromDOM($child)
     {
@@ -73,7 +75,8 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_Timezone The element being modified.
+     *
+     * @return \Zend\GData\Analytics\Extension\TableId The element being modified.
      */
     public function setValue($value)
     {
@@ -84,6 +87,8 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
     /**
      * Magic toString method allows using this directly via echo
      * Works best in PHP >= 4.2.0
+     *
+     * @return string
      */
     public function __toString()
     {

@@ -1,25 +1,13 @@
 <?php
-/**
- * @see Zend_Gdata_Feed
- */
-require_once 'Zend/Gdata/Feed.php';
+namespace Zend\GData\Analytics;
 
-/**
- * @see Zend_Gdata_Analytics
- */
-require_once 'Zend/Gdata/Analytics.php';
-
-/**
- * @see Zend_Gdata_Geo_Entry
- */
-require_once 'Zend/Gdata/Analytics/DataEntry.php';
-
+use Zend\GData\Feed;
 /**
  * @category   Zend
- * @package    Zend_Gdata
+ * @package    Zend_GData
  * @subpackage Analytics
  */
-class Zend_Gdata_Analytics_DataFeed extends Zend_Gdata_Feed
+class DataFeed extends Feed
 {
 
     /**
@@ -27,17 +15,17 @@ class Zend_Gdata_Analytics_DataFeed extends Zend_Gdata_Feed
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Analytics_DataEntry';
+    protected $_entryClassName = '\Zend\GData\Analytics\DataEntry';
     /**
      * The classname for the feed.
      *
      * @var string
      */
-    protected $_feedClassName = 'Zend_Gdata_Analytics_DataFeed';
+    protected $_feedClassName = '\Zend\GData\Analytics\DataFeed';
 
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Analytics::$namespaces);
+        $this->registerAllNamespaces(\Zend\GData\Analytics::$namespaces);
         parent::__construct($element);
     }
 }

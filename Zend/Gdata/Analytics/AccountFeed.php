@@ -1,37 +1,36 @@
 <?php
+namespace Zend\GData\Analytics;
 
-/**
- * @see Zend_Gdata_Feed
- */
-require_once 'Zend/Gdata/Feed.php';
+use Zend\GData\Feed;
 
 /**
  * @category   Zend
- * @package    Zend_Gdata
+ * @package    Zend_GData
  * @subpackage Analytics
  */
-class Zend_Gdata_Analytics_AccountFeed extends Zend_Gdata_Feed
+class AccountFeed extends Feed
 {
     /**
      * The classname for individual feed elements.
      *
      * @var string
      */
-    protected $_entryClassName = 'Zend_Gdata_Analytics_AccountEntry';
+    protected $_entryClassName = '\Zend\GData\Analytics\AccountEntry';
 
     /**
      * The classname for the feed.
      *
      * @var string
      */
-    protected $_feedClassName = 'Zend_Gdata_Analytics_AccountFeed';
+    protected $_feedClassName = '\Zend\GData\Analytics\AccountFeed';
 
     /**
-     * @see Zend_GData_Feed::__construct()
+     * @see \Zend\GData\Feed::__construct()
+     * @param null $element
      */
     public function __construct($element = null)
     {
-        $this->registerAllNamespaces(Zend_Gdata_Analytics::$namespaces);
+        $this->registerAllNamespaces(\Zend\GData\Analytics::$namespaces);
         parent::__construct($element);
     }
 }
